@@ -35,6 +35,13 @@ pipeline{
                 echo "Intruder, SonarQube, OWASP Zap can be used for security scanning"
             }
         }
+        
+        stage('Deploy to Staging'){
+            steps{
+            //echo "deploy the application to a $TESTING_ENVIRONMENT environment"
+                echo "Deploying to Azure VM server"
+            }
+        }
 
         stage('Approval'){
             steps{
@@ -46,7 +53,7 @@ pipeline{
         stage('Deploy to Production'){
             steps{
             
-            echo "deploy to $PRODUCTION_ENVIRONMENT environment"
+            //echo "deploy to $PRODUCTION_ENVIRONMENT environment"
             }
         }
     }
