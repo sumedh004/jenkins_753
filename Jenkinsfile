@@ -2,41 +2,37 @@ pipeline{
 
     agent any 
 
-    environment{
-        DIRECTORY_PATH = "C:\\Users\\sumedh\\Downloads"
-        TESTING_ENVIRONMENT = "test"
-        PRODUCTION_ENVIRONMENT = "sumedh"
-    }
-
     stages{
         stage('Build'){
             steps{
 
-            echo "Fetch the source code from $DIRECTORY_PATH"
-            echo "compile the code and generate any necessary artifacts"
+            // echo "Fetch the source code from $DIRECTORY_PATH"
+            echo "Ant is a tool that can be used for build stage"
             }
 
         }
 
-        stage('Test'){
+        stage('Unit and Integration Tests'){
            steps{
 
-            echo "unit tests"
-            echo "integration tests"
+            // echo "unit tests"
+            echo "Selenium can be used for testing"
             }
 
         }
 
-        stage('Code Quality Check'){
+        stage('Code analysis'){
             steps{
 
-            echo "check the quality of code"
+            //echo "check the quality of code"
+            echo "SonarQube can be used for code analysis"
             }
         }
 
-        stage('Deploy'){
+        stage('Security scan'){
             steps{
-            echo "deploy the application to a $TESTING_ENVIRONMENT environment"
+            //echo "deploy the application to a $TESTING_ENVIRONMENT environment"
+                echo "Intruder, SonarQube, OWASP Zap can be used for security scanning"
             }
         }
 
