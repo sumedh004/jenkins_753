@@ -52,7 +52,7 @@ pipeline{
         }
         stage('Deploy to Production'){
             steps{
-            
+            echo "Deploy to prod"
             //echo "deploy to $PRODUCTION_ENVIRONMENT environment"
             }
         }
