@@ -29,7 +29,6 @@ pipeline{
                  }
 
                 failure {
-                    //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
                     emailext(to: 'sumedhvartak@outlook.com',
                              subject: 'Build Status for Unit and Integration Tests',
                              body: 'Build is $BUILD_STATUS',
