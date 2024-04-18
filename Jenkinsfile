@@ -2,6 +2,10 @@ pipeline{
 
     agent any 
 
+    environment{
+        EMAIL_ID = 'sumedhvartak@outlook.com
+    }
+
     stages{
         stage('Build'){
             steps{
@@ -22,14 +26,14 @@ pipeline{
             post {
                 success {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for Unit and Integration Tests',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
                  }
 
                 failure {
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for Unit and Integration Tests',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
@@ -57,7 +61,7 @@ pipeline{
             post {
                 success {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for security scan',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
@@ -65,7 +69,7 @@ pipeline{
 
                 failure {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for security scan',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
@@ -92,7 +96,7 @@ pipeline{
             post {
                 success {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for Integration tests on Staging',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
@@ -100,7 +104,7 @@ pipeline{
 
                 failure {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com',
+                    emailext(to: '$EMAIL_ID',
                              subject: 'Build Status for Integration tests on Staging',
                              body: 'Build is $BUILD_STATUS',
                              attachLog: true)
