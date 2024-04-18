@@ -45,7 +45,7 @@ pipeline{
             //         mail to: "sumedhvartak@outlook.com",
             //         subject: "Build status for security scan stage",
             //         body: "Build was ${BUILD_STATUS}"
-            //     }
+                 }
              }
         }
         
