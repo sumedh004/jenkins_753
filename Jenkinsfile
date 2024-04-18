@@ -34,7 +34,8 @@ pipeline{
                 
                 echo "This stage checks for security vulnerabilities, any loopholes or exploit present within the code"
                 echo "Intruder, SonarQube, OWASP Zap can be used for security scanning"
-            }
+            }   
+        
 
             post {
                 always {
@@ -45,6 +46,7 @@ pipeline{
                 }
             }
         }
+        
         
         stage('Deploy to Staging'){
             steps{
