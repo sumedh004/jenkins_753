@@ -3,7 +3,7 @@ pipeline{
     agent any 
 
     environment{
-        EMAIL_ID = 'sumedhvartak@outlook.com
+        EMAIL_ID = 'sumedhvartak@outlook.com'
     }
 
     stages{
