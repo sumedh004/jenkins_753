@@ -19,6 +19,24 @@ pipeline{
                 echo "JUnit and Selenium can be used for testing"
             }
 
+            post {
+                success {
+                    //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for Unit and Integration Tests',
+                             body: 'Build is $BUILD_STATUS',
+                             attachLog: true)
+                 }
+
+                failure {
+                    //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for Unit and Integration Tests',
+                             body: 'Build is $BUILD_STATUS',
+                             attachLog: true)
+                 }
+             }
+
         }
 
         stage('Code analysis'){
@@ -40,17 +58,17 @@ pipeline{
             post {
                 success {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com'
-                             subject: 'Build Status',
-                             body: 'Build is $BUILD_STATUS'
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for security scan',
+                             body: 'Build is $BUILD_STATUS',
                              attachLog: true)
                  }
 
                 failure {
                     //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
-                    emailext(to: 'sumedhvartak@outlook.com'
-                             subject: 'Build Status',
-                             body: 'Build is $BUILD_STATUS'
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for security scan',
+                             body: 'Build is $BUILD_STATUS',
                              attachLog: true)
                  }
              }
@@ -71,6 +89,24 @@ pipeline{
                 echo "Testing on staging environment is performed to ensure the application is performing as expected"
                 echo "Postman is a tool that can be used"
             }
+
+            post {
+                success {
+                    //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for Integration tests on Staging',
+                             body: 'Build is $BUILD_STATUS',
+                             attachLog: true)
+                 }
+
+                failure {
+                    //emailext (attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com')
+                    emailext(to: 'sumedhvartak@outlook.com',
+                             subject: 'Build Status for Integration tests on Staging',
+                             body: 'Build is $BUILD_STATUS',
+                             attachLog: true)
+                 }
+             }
 
         }
         stage('Deploy to Production'){
