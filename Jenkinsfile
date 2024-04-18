@@ -39,13 +39,14 @@ pipeline{
 
             post {
                 always {
+                    emailext attachLog: true, body: 'Build is $BUILD_STATUS', subject: 'Build Status', to: 'sumedhvartak@outlook.com'
+            //         emailext()
                     
-                    mail to: "sumedhvartak@outlook.com",
-                    subject: "Build status for security scan stage",
-                    body: 'Build was $BUILD_STATUS',
-                    attachLog: true
-                }
-            }
+            //         mail to: "sumedhvartak@outlook.com",
+            //         subject: "Build status for security scan stage",
+            //         body: "Build was ${BUILD_STATUS}"
+            //     }
+            // }
         }
         
         
