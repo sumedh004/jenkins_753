@@ -5,9 +5,9 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-
-            // echo "Fetch the source code from $DIRECTORY_PATH"
-            echo "Ant is a tool that can be used for build stage"
+                
+                echo "In Build stage, source code is compiled and packaged into executable files"
+                echo "Ant is a tool that can be used for build stage"
             }
 
         }
@@ -15,45 +15,48 @@ pipeline{
         stage('Unit and Integration Tests'){
            steps{
 
-            // echo "unit tests"
-            echo "Selenium can be used for testing"
+                echo "unit tests verifies functionality of individual functions and integration test makes sure that all modules interact with each other without any issues"
+                echo "JUnit and Selenium can be used for testing"
             }
 
         }
 
         stage('Code analysis'){
             steps{
-
-            //echo "check the quality of code"
-            echo "SonarQube can be used for code analysis"
+                
+                echo "Analyses the code for any issues, checks quality of code"
+                echo "SonarQube can be used for code analysis"
             }
         }
 
         stage('Security scan'){
             steps{
-            //echo "deploy the application to a $TESTING_ENVIRONMENT environment"
+                
+                echo "This stage checks for security vulnerabilities, any loopholes or exploit present within the code"
                 echo "Intruder, SonarQube, OWASP Zap can be used for security scanning"
             }
         }
         
         stage('Deploy to Staging'){
             steps{
-            //echo "deploy the application to a $TESTING_ENVIRONMENT environment"
-                echo "Deploying to Azure VM server"
+                
+                echo "Staging environment is a cpoy of production environment where the application is deployed to check and test the working of it before finalizing it to production environment"
+                echo "AWS CodeDeploy, codecommit and codepipeline can be used for deploying"
             }
         }
 
-        stage('Approval'){
+        stage('Integration tests on Staging'){
             steps{
 
-            sleep(10)
+                echo "Testing on staging environment is performed to ensure the application is performing as expected"
+                echo "Postman is a tool that can be used"
             }
 
         }
         stage('Deploy to Production'){
             steps{
-            echo "Deploy to prod"
-            //echo "deploy to $PRODUCTION_ENVIRONMENT environment"
+                echo "The application is deployed to live to production server where the users can access it"
+                echo "Selenium, Postman can be used"
             }
         }
     }
