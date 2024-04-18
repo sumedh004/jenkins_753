@@ -35,6 +35,15 @@ pipeline{
                 echo "This stage checks for security vulnerabilities, any loopholes or exploit present within the code"
                 echo "Intruder, SonarQube, OWASP Zap can be used for security scanning"
             }
+
+            post {
+                always {
+                    
+                    mail to: 'sumedhvartak@outlook.com'
+                    subject: 'Build status for security scan stage'
+                    body: 'Build was ${BUILD_STATUS}'
+                }
+            }
         }
         
         stage('Deploy to Staging'){
@@ -56,7 +65,7 @@ pipeline{
         stage('Deploy to Production'){
             steps{
                 echo "The application is deployed to live to production server where the users can access it"
-                echo "Selenium, Postman can be used"
+                echo "Same tools in deploying to staging can be used"
             }
         }
     }
