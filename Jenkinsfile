@@ -40,9 +40,9 @@ pipeline{
             post {
                 always {
                     
-                    mail to: 'sumedhvartak@outlook.com'
-                    subject: 'Build status for security scan stage'
-                    body: 'Build was ${BUILD_STATUS}'
+                    mail to: "sumedhvartak@outlook.com",
+                    subject: "Build status for security scan stage",
+                    body: "Build was ${BUILD_STATUS}"
                 }
             }
         }
