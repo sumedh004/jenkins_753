@@ -13,7 +13,6 @@ pipeline{
                 echo "In Build stage, source code is compiled and packaged into executable files"
                 echo "Ant is a tool that can be used for build stage"
             }
-
         }
 
         stage('Unit and Integration Tests'){
