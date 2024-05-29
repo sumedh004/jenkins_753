@@ -38,7 +38,6 @@ pipeline{
                              attachLog: true)
                  }
              }
-
         }
 
         stage('Code analysis'){
